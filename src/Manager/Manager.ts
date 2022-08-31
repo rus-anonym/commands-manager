@@ -10,7 +10,7 @@ class Manager<
 > {
     public readonly list: Cmd[];
 
-    constructor(list: Cmd[]) {
+    constructor(list: Cmd[] = []) {
         this.list = list;
     }
 
@@ -23,6 +23,17 @@ class Manager<
             }
             ++index;
         }
+    }
+
+    public add(...commands: Cmd[]): this {
+        this.list.push(...commands);
+        return this;
+    }
+
+    public setList(commands: Cmd[]): this {
+        this.list.length = 0;
+        this.list.push(...commands);
+        return this;
     }
 }
 
