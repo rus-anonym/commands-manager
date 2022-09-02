@@ -7,11 +7,7 @@
 #### TextCommand
 
 ```typescript
-import {
-    TRawFunc,
-    ICommandParams,
-    Command,
-} from "@rus-anonym/commands-manager";
+import { TRawFunc, ICommandParams, Command } from "@rus-anonym/commands-manager";
 
 class TextCommand<Func extends TRawFunc> extends Command<Func> {
     private _trigger: string;
@@ -30,7 +26,7 @@ const cmd = new TextCommand({ func: (log: string) => log, trigger: "hello" });
 
 cmd.check("hello"); // true
 cmd.check("hey"); // false
-cmd.execute(); // Error arg not passed
+cmd.execute(); // Expected N arguments, but got 0 ts(2554)
 cmd.execute("hey"); // Promise<"hey">
 ```
 
