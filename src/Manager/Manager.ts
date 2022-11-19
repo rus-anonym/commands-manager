@@ -1,12 +1,8 @@
+import { Command } from "../Command";
 import { TRawFunc } from "../types";
 
-import { Command } from "../Command";
-
 class Manager<
-    Cmd extends Command<Func, Res, Err>,
-    Func extends TRawFunc,
-    Res = ReturnType<Func>,
-    Err extends Error = Error
+    Cmd extends Command<TRawFunc>
 > {
     public readonly list: Cmd[];
 
